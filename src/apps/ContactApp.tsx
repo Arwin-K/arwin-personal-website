@@ -6,7 +6,7 @@ export function ContactApp() {
     <div className="app contact">
       <h2 className="contact__title">Get in touch</h2>
       <p className="muted">
-        I welcome internship, collaboration, and project inquiries. Email is the best way to reach me.
+        I welcome engineering, research, and collaboration inquiries. Email is the best way to reach me.
       </p>
       <div className="contact__list">
         <a className="contact__row" href={`mailto:${profile.email}`}>

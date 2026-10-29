@@ -7,17 +7,17 @@ export const profile = {
   github: "https://github.com/Arwin-K",
   linkedin: "https://linkedin.com/in/arwin-karir",
   linkedinHandle: "arwin-karir",
-  x: "https://x.com/ArwinKarir51596",
-  xHandle: "ArwinKarir51596",
+  x: "https://x.com/ArwinKarir",
+  xHandle: "ArwinKarir",
   instagram: "https://www.instagram.com/arwin_karir/",
   instagramHandle: "arwin_karir",
   blurb:
-    "I am a second-year Computer Engineering student at the University of Toronto pursuing PEY Co-op opportunities. My work spans full-stack web development, machine learning, and edge computer-vision systems, with an emphasis on practical, well-engineered products.",
+    "I study Computer Engineering at the University of Toronto and build software across product engineering, GPU systems, and computer vision. At SellStatic, I ship reliable AI-ad workflows. My recent work also includes a faster CUDA attention kernel and LumiSense, a Raspberry Pi lighting-analysis system for the UofT Sustainability Office.",
   education: {
     school: "University of Toronto",
     degree: "BASc in Computer Engineering (PEY Co-op)",
     location: "Toronto, ON",
-    dates: "Sept. 2025 - May 2029",
+    dates: "September 2025 - May 2029",
   },
   stacks: [
     {

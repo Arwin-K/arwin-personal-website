@@ -7,6 +7,8 @@ const articles = [
     category: "GPU systems",
     topics: ["CUDA", "PyTorch", "Transformer attention"],
     href: "/cuda-optimization-softmax",
+    image: "/projects/cuda-softmax/fig_kernel_vs_attention_speedup.png",
+    imageAlt: "Chart comparing isolated kernel and full attention speedup",
   },
 ];
 
@@ -15,8 +17,9 @@ export function WritingApp() {
     <div className="app folder projects writing-app">
       <header className="projects__intro writing-app__header">
         <div>
+          <span className="app-showcase__eyebrow">Field notes / technical writing</span>
           <h2>Writing</h2>
-          <p>Long-form technical work, grounded in source code and measured evidence.</p>
+          <p>Experiments, implementation details, and the evidence behind the result.</p>
         </div>
       </header>
 
@@ -25,6 +28,11 @@ export function WritingApp() {
         <div className="repolist">
           {articles.map((article) => (
             <article className="repocard projectcard writing-card" key={article.href}>
+              <a className="writing-card__cover" href={article.href} aria-label={`Read ${article.title}`}>
+                <div className="writing-card__cover-copy"><small>ENGINEERING NOTE / 001</small><strong>Inside the<br />kernel.</strong><span>From a faster softmax to faster attention.</span></div>
+                <div className="writing-card__cover-figure"><img src={article.image} alt={article.imageAlt} /></div>
+                <span>01 / Research journal</span>
+              </a>
               <div className="repocard__top">
                 <a className="repocard__name" href={article.href} target="_blank" rel="noreferrer">
                   {article.title}

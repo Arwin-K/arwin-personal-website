@@ -24,7 +24,8 @@ export function PhotographyApp() {
         target="_blank"
         rel="noreferrer"
       >
-        <span>Instagram</span>
+        <Icon name="instagram" size={18} />
+        <span>View the full photography feed on Instagram</span>
         <strong>{photography.instagramHandle}</strong>
         <span className="photo__instagram-arrow" aria-hidden="true">↗</span>
       </a>
@@ -50,6 +51,7 @@ export function PhotographyApp() {
           </button>
         ))}
       </div>
+      <a className="photo__more" href={photography.instagramUrl} target="_blank" rel="noreferrer">More photography at {photography.instagramHandle} ↗</a>
 
       {activeShot && (
         <div className="lightbox" onClick={() => setActive(null)}>

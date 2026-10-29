@@ -6,24 +6,27 @@ export interface WorkItem {
   dates: string;
   icon: string;
   summary: string;
+  tags: string[];
+  highlight: string;
   bullets: string[];
 }
 
 export const work: WorkItem[] = [
   {
     id: "sellstatic",
-    role: "Software Engineering Intern",
+    role: "Software Engineer",
     company: "SellStatic",
     location: "Toronto, ON",
-    dates: "May 2026 - Present",
+    dates: "May 2026 – Present",
     icon: "briefcase",
-    summary: "Full-stack work on an AI-native video editor, feedback automation, and a support chatbot.",
+    summary: "Shipping reliable AI-ad creation workflows across React, ASP.NET Core, Azure, and AWS.",
+    tags: ["React", "C# / ASP.NET Core", "AWS", "Azure"],
+    highlight: "27 product surfaces instrumented",
     bullets: [
-      "Implementing feedback automation architecture with AWS SES, scheduled cron jobs, tokenized feedback links, unsubscribe handling, and database-backed email state to collect post-signup customer experience feedback.",
-      "Designing and developing an AI-native browser-based video editor by improving React/Next.js editor workflows for media upload/loading, timeline editing, text overlays, animations, preview playback, autosave, and export across a complex interactive UI.",
-      "Spearheading end-to-end development of a website chatbot feature by architecting the chat UI, integrating a GPT API plugin, implementing request/response handling, and designing production-ready interaction flows for user support and engagement.",
-      "Debugging and improving project persistence by tracing reload-related state loss across frontend state, Prisma/PostgreSQL save/load flows, and persistent media storage - helping restore videos, timeline clips, text layers, and draft metadata after refresh.",
-      "Developing QA workflows with Playwright, Playwright MCP, network/console monitoring, cross-browser testing, and upload/playback/export edge cases to validate editor reliability before release.",
+      "Designed a fault-tolerant AI-video completion pipeline (AWS SNS, SQS with dead-letter queue, Lambda, SES; Azure Blob Storage) that delivers generated videos to users who leave the app mid-render",
+      "Shipped revision history for AI-generated ads with backend validation, durable storage, blob-cleanup retries, and stale-credit recovery, fixing failure cases in a deployed generative-AI product",
+      "Built a brand-onboarding flow (React, C# ASP.NET Core) that imports a company’s logo and extracts its color palette to configure AI ad generation, covered by 10+ tests",
+      "Built a GA4 analytics layer with a standardized event taxonomy tracking clicks, feature timing, credit spend, and subscriptions across 27 product surfaces to measure user experience",
     ],
   },
   {
@@ -31,14 +34,16 @@ export const work: WorkItem[] = [
     role: "Artificial Intelligence Intern",
     company: "Amazon Work Experience Program",
     location: "Remote",
-    dates: "Jun. 2023 - Aug. 2023",
+    dates: "June 2023 – August 2023",
     icon: "amazon",
-    summary: "Built a supervised ML workflow for forest-cover classification on AWS, presented to AWS executives.",
+    summary: "Compared machine-learning models for forest-cover classification on AWS.",
+    tags: ["Python", "scikit-learn", "SageMaker", "Optuna"],
+    highlight: "93.4% decision-tree accuracy",
     bullets: [
-      "Built a supervised machine learning workflow on environmental datasets for forest-cover classification, structuring experiments for reproducible training, evaluation, and model comparison.",
-      "Owned Python-based preprocessing and feature engineering with pandas, NumPy, and scikit-learn to clean inputs, standardize features, and improve training signal quality.",
-      "Benchmarked k-NN, logistic regression, and neural network models, reporting trade-offs across accuracy, interpretability, and computational cost to guide model selection.",
-      "Used AWS development workflows with Amazon SageMaker, Amazon S3, and Amazon EC2, collaborating on a 4-person team to present metrics-driven results and next steps to AWS executives.",
+      "Built a supervised machine-learning pipeline in Python (pandas, NumPy, scikit-learn) to classify 7 forest cover types from 54 environmental features across 464,811 records, min-max scaling features whose ranges spanned 3 to 3,000",
+      "Fixed a 104× class imbalance (2,179 to 226,793 samples per class) by oversampling all 7 classes with SMOTE",
+      "Tuned a decision tree with Optuna (max depth 40, entropy) to 93.4% accuracy, beating a neural network (70.6%) and logistic regression (61.7%); used Matplotlib feature importance to find the top predictor",
+      "Benchmarked training time across all 3 models (6.6 s to 285.7 s) on AWS (SageMaker, S3, EC2) and presented accuracy-versus-cost trade-offs to AWS engineers as part of a 4-person team",
     ],
   },
 ];

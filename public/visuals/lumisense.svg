@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-labelledby="title">
+  <title id="title">Illustration of a camera mapping light across a room</title>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#091b30"/><stop offset="1" stop-color="#28527a"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#ffe3a3" stop-opacity=".95"/><stop offset="1" stop-color="#ffe3a3" stop-opacity="0"/></radialGradient>
+    <linearGradient id="floor" x2=".8" y2="1"><stop stop-color="#7fcee1"/><stop offset=".55" stop-color="#8eb9c9"/><stop offset="1" stop-color="#293c72"/></linearGradient>
+    <pattern id="grid" width="54" height="35" patternUnits="userSpaceOnUse"><path d="M54 0H0V35" fill="none" stroke="#d9fbff" stroke-opacity=".32"/></pattern>
+  </defs>
+  <rect width="900" height="300" fill="url(#bg)"/>
+  <circle cx="623" cy="35" r="230" fill="url(#glow)"/>
+  <path d="M0 212 405 131l495 82v87H0Z" fill="#304a6e"/>
+  <path d="M265 217 524 151l328 55-273 85Z" fill="url(#floor)" stroke="#cff1ff" stroke-opacity=".55" stroke-width="2"/>
+  <path d="M265 217 524 151l328 55-273 85Z" fill="url(#grid)" opacity=".8"/>
+  <g opacity=".75">
+    <circle cx="488" cy="201" r="25" fill="#ffe5a1" opacity=".55"/><circle cx="488" cy="201" r="7" fill="#fff4d0"/>
+    <circle cx="636" cy="221" r="31" fill="#f5cc8c" opacity=".55"/><circle cx="636" cy="221" r="8" fill="#fff4d0"/>
+    <circle cx="702" cy="197" r="19" fill="#72e3dc" opacity=".65"/><circle cx="702" cy="197" r="6" fill="#e0fff4"/>
+  </g>
+  <path d="M346 93 489 183M346 93 638 189" stroke="#9ce9ea" stroke-width="2" stroke-dasharray="6 6" opacity=".85"/>
+  <g transform="translate(256 38)">
+    <rect x="0" y="16" width="132" height="85" rx="16" fill="#102b49" stroke="#d3f2ff" stroke-width="4"/>
+    <rect x="13" y="0" width="35" height="19" rx="6" fill="#d3f2ff"/>
+    <circle cx="67" cy="58" r="29" fill="#2c6684" stroke="#d3f2ff" stroke-width="7"/>
+    <circle cx="67" cy="58" r="12" fill="#9de6e5"/>
+    <circle cx="110" cy="36" r="5" fill="#ffdc91"/>
+  </g>
+  <g font-family="Arial, sans-serif" fill="#d9f4ff" font-size="13" letter-spacing="3">
+    <text x="48" y="49">LUMISENSE / LIGHT MAPPING</text>
+    <text x="48" y="75" fill="#9fc4d5" font-size="11">CAMERA INPUT → DENSE LUX ESTIMATE</text>
+  </g>
+</svg>
