@@ -14,8 +14,8 @@ const featured = [
       "A fused FP32 PyTorch extension that combines scaling, masking, reduction, and normalization in one block-parallel kernel.",
     result: "1.40–3.94× faster",
     detail: "than PyTorch eager softmax on a Tesla T4",
-    image: "/projects/cuda-softmax/fig_softmax_latency.png",
-    imageAlt: "Measured causal softmax latency across sequence lengths",
+    image: "/visuals/cuda-softmax-thumb.svg",
+    imageAlt: "Bar chart of the kernel's speedup over PyTorch eager softmax, peaking at 3.94× at sequence length 1,536",
     tags: ["CUDA", "C++", "PyTorch"],
     article: "/cuda-optimization-softmax",
   },
@@ -28,8 +28,8 @@ const featured = [
       "A Raspberry Pi camera system estimating floor-level illuminance and lighting emissions for the UofT Sustainability Office.",
     result: "3.97% average error",
     detail: "against benchmark lux readings at 13 spots",
-    image: "/visuals/lumisense.svg",
-    imageAlt: "Illustration of a camera mapping light across a room",
+    image: "/visuals/lumisense-thumb.svg",
+    imageAlt: "Floor plan of a room shaded by estimated light level, with 13 reference measurement spots",
     tags: ["PyTorch", "ONNX", "OpenCV", "Raspberry Pi"],
     article: null,
   },
@@ -70,7 +70,7 @@ export function ProjectsApp() {
             return (
               <article className="proj" key={project.repo}>
                 <a
-                  className={`proj__thumb proj__thumb--${project.repo === "LumiSense" ? "art" : "chart"}`}
+                  className="proj__thumb"
                   href={primaryHref}
                   target={project.article ? undefined : "_blank"}
                   rel="noreferrer"
