@@ -1,13 +1,26 @@
+import { Icon } from "../os/Icon";
+
+const FILE_NAME = "Arwin_Karir_Resume_October_2026.pdf";
+
 export function ResumeApp() {
   return (
-    <div className="app resume">
-      <div className="resume__bar">
-        <span className="resume__name">Arwin_Karir_Resume_October_2026.pdf</span>
-        <a className="btn btn--primary" href="/resume.pdf" download="Arwin_Karir_Resume_October_2026.pdf">
-          ⬇ Download
+    <div className="app app--framed resume">
+      <div className="app__toolbar">
+        <span className="crumb resume__file">
+          <Icon name="resume" size={16} />
+          <span>{FILE_NAME}</span>
+        </span>
+        <span className="app__toolbar-spacer" />
+        <a className="btn" href="/resume.pdf" target="_blank" rel="noreferrer">
+          Open ↗
+        </a>
+        <a className="btn btn--primary" href="/resume.pdf" download={FILE_NAME}>
+          Download
         </a>
       </div>
-      <iframe className="resume__frame" src="/resume.pdf#toolbar=0&view=FitH" title="Arwin Karir Resume" />
+      <div className="resume__well">
+        <iframe className="resume__frame" src="/resume.pdf#toolbar=0&view=FitH" title="Arwin Karir Resume" />
+      </div>
     </div>
   );
 }

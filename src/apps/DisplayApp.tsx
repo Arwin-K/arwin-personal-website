@@ -1,57 +1,58 @@
 import { useWallpaper } from "../os/WallpaperContext";
 import { useTheme } from "../os/ThemeContext";
 
+const MODES = [
+  { id: "light", label: "Light" },
+  { id: "dark", label: "Dark" },
+] as const;
+
 export function DisplayApp() {
   const { wallpaperId, setWallpaperId, options } = useWallpaper();
   const { theme, setTheme } = useTheme();
 
   return (
     <div className="app display">
-      <div className="display__section">
-        <span className="display__legend">Display</span>
-
-        <div className="display__row">
-          <span className="display__label">Wallpaper</span>
-          <div className="bgpicker">
-            {options.map((w) => (
-              <button
-                key={w.id}
-                className={`bgpicker__item ${wallpaperId === w.id ? "bgpicker__item--on" : ""}`}
-                onClick={() => setWallpaperId(w.id)}
-                title={w.name}
-              >
-                <span
-                  className="bgpicker__thumb"
-                  style={{ backgroundImage: `url(${w.src})` }}
-                />
-                <span className="bgpicker__name">{w.name}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="display__row">
-          <span className="display__label">Color mode</span>
-          <div className="seg">
+      <section className="pane">
+        <h3 className="pane__title">Appearance</h3>
+        <div className="modes" role="radiogroup" aria-label="Color mode">
+          {MODES.map((mode) => (
             <button
-              className={`seg__btn ${theme === "light" ? "seg__btn--on" : ""}`}
-              onClick={() => setTheme("light")}
+              key={mode.id}
+              role="radio"
+              aria-checked={theme === mode.id}
+              className={`mode ${theme === mode.id ? "is-on" : ""}`}
+              onClick={() => setTheme(mode.id)}
             >
-              ☀ Light
+              <span className={`mode__preview mode__preview--${mode.id}`} aria-hidden>
+                <i />
+                <b />
+                <b />
+              </span>
+              <span className="mode__label">{mode.label}</span>
             </button>
-            <button
-              className={`seg__btn ${theme === "dark" ? "seg__btn--on" : ""}`}
-              onClick={() => setTheme("dark")}
-            >
-              ☾ Dark
-            </button>
-          </div>
+          ))}
         </div>
-      </div>
+      </section>
 
-      <p className="muted display__note">
-        Your wallpaper preference is saved for future visits.
-      </p>
+      <section className="pane">
+        <h3 className="pane__title">Wallpaper</h3>
+        <div className="walls" role="radiogroup" aria-label="Wallpaper">
+          {options.map((w) => (
+            <button
+              key={w.id}
+              role="radio"
+              aria-checked={wallpaperId === w.id}
+              className={`wall ${wallpaperId === w.id ? "is-on" : ""}`}
+              onClick={() => setWallpaperId(w.id)}
+            >
+              <span className="wall__thumb" style={{ backgroundImage: `url(${w.src})` }} />
+              <span className="wall__name">{w.name}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <p className="display__note">Your choices are saved in this browser for your next visit.</p>
     </div>
   );
 }
