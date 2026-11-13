@@ -1,34 +1,56 @@
+/* ArwinOS palette: warm paper surfaces, a dark pixel-outline frame (matches
+   the "k" outline color in pixelIcons), and accents pulled from the icon set. */
 :root {
-  --bg: #f5f5f7;
-  --panel: #ffffff;
-  --panel-2: #f5f5f7;
-  --ink: #1d1d1f;
-  --muted: #6e6e73;
-  --line: rgba(0, 0, 0, 0.08);
-  --accent: #007aff;
+  --bg: #ece7dd;
+  --panel: #fcfbf8;
+  --panel-2: #f3f0e9;
+  --panel-3: #e8e3d8;
+  --ink: #1e1c19;
+  --ink-2: #4a453e;
+  --muted: #7a736a;
+  --line: #e6e1d7;
+  --line-strong: #d2cbbe;
+  --frame: #2b2833;
+  --accent: #2f56c8;
+  --accent-fill: #2f56c8;
+  --accent-soft: rgba(47, 86, 200, 0.1);
   --accent-2: #5856d6;
-  --accent-3: #ff9500;
-  --green: #34c759;
-  --radius: 10px;
-  --shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
-  --hover: rgba(0, 0, 0, 0.04);
-  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  --accent-3: #ee7b30;
+  --green: #2f7d3a;
+  --marker: rgba(244, 196, 48, 0.55);
+  --zebra: rgba(60, 50, 30, 0.028);
+  --stripe: rgba(43, 40, 51, 0.16);
+  --radius: 8px;
+  --shadow: 5px 5px 0 rgba(35, 35, 47, 0.16), 0 18px 44px rgba(40, 30, 15, 0.2);
+  --shadow-soft: 3px 3px 0 rgba(35, 35, 47, 0.1), 0 10px 28px rgba(40, 30, 15, 0.13);
+  --hover: rgba(40, 32, 20, 0.05);
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
   --mono: "SF Mono", ui-monospace, Menlo, monospace;
 }
 
 :root[data-theme="dark"] {
-  --bg: #1c1c1e;
-  --panel: #2c2c2e;
-  --panel-2: #1c1c1e;
-  --ink: #f5f5f7;
-  --muted: #98989d;
-  --line: rgba(255, 255, 255, 0.08);
-  --accent: #0a84ff;
+  --bg: #151412;
+  --panel: #1f1e1b;
+  --panel-2: #262421;
+  --panel-3: #2e2b27;
+  --ink: #ece7de;
+  --ink-2: #c8c1b5;
+  --muted: #9a9389;
+  --line: #34312c;
+  --line-strong: #46423b;
+  --frame: #0a0a09;
+  --accent: #93abff;
+  --accent-fill: #4766d6;
+  --accent-soft: rgba(147, 171, 255, 0.13);
   --accent-2: #5e5ce6;
-  --accent-3: #ff9f0a;
-  --green: #30d158;
-  --shadow: 0 16px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.06);
-  --hover: rgba(255, 255, 255, 0.06);
+  --accent-3: #f0914f;
+  --green: #5fc46f;
+  --marker: rgba(244, 196, 48, 0.3);
+  --zebra: rgba(255, 255, 255, 0.022);
+  --stripe: rgba(255, 255, 255, 0.09);
+  --shadow: 5px 5px 0 rgba(0, 0, 0, 0.35), 0 20px 50px rgba(0, 0, 0, 0.5);
+  --shadow-soft: 3px 3px 0 rgba(0, 0, 0, 0.25), 0 10px 28px rgba(0, 0, 0, 0.35);
+  --hover: rgba(255, 255, 255, 0.055);
 }
 
 :root[data-theme="light"] .menubar {
@@ -223,19 +245,15 @@ a {
   flex-direction: column;
   background: var(--panel);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--line);
+  border: 1px solid var(--frame);
+  box-shadow: var(--shadow-soft);
   overflow: hidden;
   min-width: 320px;
   min-height: 220px;
 }
 
 .window--active {
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.06);
-}
-
-.window:not(.window--active) {
-  opacity: 0.96;
+  box-shadow: var(--shadow);
 }
 
 /* Open animation: a small black square starts at the clicked icon, travels to
@@ -292,65 +310,136 @@ a {
 }
 
 .window__titlebar {
-  height: 36px;
+  height: 32px;
   display: flex;
   align-items: center;
-  padding: 0 12px;
-  background: var(--panel-2);
-  border-bottom: 1px solid var(--line);
+  gap: 10px;
+  padding: 0 10px;
+  background: var(--panel-3);
+  border-bottom: 1px solid var(--line-strong);
   cursor: grab;
   flex-shrink: 0;
 }
 
 .window__lights {
   display: flex;
-  gap: 8px;
-  width: 70px;
+  gap: 7px;
+  width: 58px;
+  flex-shrink: 0;
 }
 
 .light {
-  width: 13px;
-  height: 13px;
+  position: relative;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: none;
   padding: 0;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.28);
 }
 
 .light--close {
-  background: #ff5f57;
+  background: #ee6a5f;
 }
 .light--min {
-  background: #febc2e;
+  background: #f4c430;
 }
 .light--max {
-  background: #28c840;
-}
-.light:hover {
-  filter: brightness(0.9);
+  background: #46c05a;
 }
 
+/* Glyphs appear when the pointer is over the light cluster, like a real OS. */
+.light::after {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(0, 0, 0, 0.6);
+  font: 700 9px/1 var(--mono);
+  opacity: 0;
+}
+.light--close::after {
+  content: "×";
+  font-size: 11px;
+}
+.light--min::after {
+  content: "–";
+}
+.light--max::after {
+  content: "+";
+}
+.window__lights:hover .light::after {
+  opacity: 1;
+}
+
+.window:not(.window--active) .light {
+  background: var(--line-strong);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+.window:not(.window--active) .window__lights:hover .light--close {
+  background: #ee6a5f;
+}
+.window:not(.window--active) .window__lights:hover .light--min {
+  background: #f4c430;
+}
+.window:not(.window--active) .window__lights:hover .light--max {
+  background: #46c05a;
+}
+
+/* Title sits in a gap between two bands of pinstripes on the active window. */
 .window__title {
   flex: 1;
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 7px;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12.5px;
+  font-weight: 600;
   color: var(--muted);
-  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.window__title span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.window__title::before,
+.window__title::after {
+  content: "";
+  flex: 1;
+  min-width: 12px;
+  height: 11px;
+  background: repeating-linear-gradient(to bottom, var(--stripe) 0 1px, transparent 1px 3px);
+  opacity: 0;
+}
+
+.window__title::before {
+  margin-right: 4px;
+}
+
+.window__title::after {
+  margin-left: 4px;
 }
 
 .window--active .window__title {
   color: var(--ink);
 }
 
+.window--active .window__title::before,
+.window--active .window__title::after {
+  opacity: 1;
+}
+
 .window__spacer {
-  width: 70px;
+  width: 58px;
+  flex-shrink: 0;
 }
 
 .window__body {
   flex: 1;
+  min-height: 0;
   overflow: auto;
   background: var(--panel);
 }
@@ -360,22 +449,20 @@ a {
   right: 0;
   bottom: 0;
   z-index: 3;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   cursor: nwse-resize;
   touch-action: none;
-}
-
-.window__resize::after {
-  content: "";
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  width: 9px;
-  height: 9px;
-  border-right: 2px solid var(--muted);
-  border-bottom: 2px solid var(--muted);
-  opacity: 0.65;
+  background: linear-gradient(
+    135deg,
+    transparent 0 55%,
+    var(--line-strong) 55% 60%,
+    transparent 60% 70%,
+    var(--line-strong) 70% 75%,
+    transparent 75% 85%,
+    var(--line-strong) 85% 90%,
+    transparent 90%
+  );
 }
 
 /* ---------- Dock ---------- */
