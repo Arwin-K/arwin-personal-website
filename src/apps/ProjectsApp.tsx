@@ -6,6 +6,20 @@ import { RepoList } from "./RepoList";
 
 const featured = [
   {
+    repo: "jev-llm-gateway",
+    title: "Jev LLM Gateway",
+    area: "LLM systems",
+    dates: "October 2026–present",
+    description:
+      "A cost-aware gateway that routes chat requests across small, medium, and frontier model tiers, with optional verifier cascades and semantic caching.",
+    result: "2,500-prompt benchmark",
+    detail: "frozen across math, multiple-choice, and coding tasks",
+    image: "/visuals/jev-gateway-thumb.svg",
+    imageAlt: "Pixel diagram of a prompt passing through a router to small, medium, and frontier model tiers",
+    tags: ["Python", "FastAPI", "Ollama", "Docker"],
+    article: null,
+  },
+  {
     repo: "CUDA-Attention-Softmax",
     title: "CUDA Optimization of Fused Causal Softmax",
     area: "GPU systems",
@@ -40,7 +54,10 @@ export function ProjectsApp() {
   const remaining = useMemo(
     () =>
       repos.filter(
-        (repo) => !repo.fork && !repo.archived && !featured.some((item) => item.repo === repo.name),
+        (repo) =>
+          !repo.fork &&
+          !repo.archived &&
+          !featured.some((item) => item.repo.toLowerCase() === repo.name.toLowerCase()),
       ),
     [repos],
   );
