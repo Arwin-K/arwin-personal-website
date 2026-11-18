@@ -26,6 +26,10 @@ export function useWindowManager(apps: Record<string, AppDef>) {
     (appId: string, origin?: Origin) => {
       const app = apps[appId];
       if (!app) return;
+      if (app.externalUrl) {
+        window.open(app.externalUrl, "_blank", "noopener,noreferrer");
+        return;
+      }
       setWindows((prev) => {
         const existing = prev.find((w) => w.appId === appId);
         if (existing) {

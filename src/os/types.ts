@@ -13,6 +13,8 @@ export interface AppDef {
   /** Default window size. */
   width?: number;
   height?: number;
+  /** If set, opening this app launches the URL in a new browser tab instead of a window. */
+  externalUrl?: string;
   /** Renders the window body. */
   render: (api: AppRenderApi) => ReactNode;
 }

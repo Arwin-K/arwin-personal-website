@@ -44,6 +44,15 @@ export const APPS: AppDef[] = [
     render: () => <ProjectsApp />,
   },
   {
+    id: "still",
+    title: "Still",
+    icon: "still",
+    onDesktop: true,
+    inDock: true,
+    externalUrl: "https://still-testing.vercel.app/",
+    render: () => null,
+  },
+  {
     id: "writing",
     title: "Writing",
     icon: "notes",

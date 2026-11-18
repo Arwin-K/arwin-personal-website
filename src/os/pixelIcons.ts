@@ -83,6 +83,23 @@ export const ICONS: Record<string, string[]> = {
     "kyyyyyyyyyyyk.",
     "kkkkkkkkkkkkk.",
   ],
+  // A sprout in a pot, for Still ("find something worth building").
+  still: [
+    ".kkk......kkk.",
+    "kgggk....kgggk",
+    "kggggk..kggggk",
+    ".kgGGgkkgGGgk.",
+    "..kkgGGGGgkk..",
+    "....kkGGkk....",
+    ".....kGGk.....",
+    ".....kGGk.....",
+    "..kkkkkkkkkk..",
+    "..kooooooook..",
+    "..kOOOOOOOOk..",
+    "...kooooook...",
+    "...kOOOOOOk...",
+    "...kkkkkkkk...",
+  ],
   folder: [
     "..............",
     "..kkkkk.......",

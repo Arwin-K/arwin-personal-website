@@ -205,6 +205,7 @@ const OPEN_APPS: Record<string, string> = {
   about: "about",
   resume: "resume",
   projects: "projects",
+  still: "still",
   work: "work",
   github: "github",
   photo: "photography",
