@@ -7,10 +7,10 @@ export interface Wallpaper {
 export const wallpapers: Wallpaper[] = [
   { id: "cloudbreak", name: "Cloudbreak Cliffs", src: "/wallpapers/cloudbreak.png" },
   { id: "amethyst-keep", name: "Amethyst Keep", src: "/wallpapers/amethyst-keep.png" },
-  { id: "tatooine", name: "Tatooine", src: "/wallpapers/tatooine.png" },
+  { id: "eclipse-shore", name: "Eclipse Shore", src: "/wallpapers/eclipse-shore.png" },
 ];
 
-export const defaultWallpaperId = "tatooine";
+export const defaultWallpaperId = "eclipse-shore";
 
 // Portrait wallpapers used exclusively by the phone (iPhone-style) UI.
 export const phoneWallpapers: Wallpaper[] = [
